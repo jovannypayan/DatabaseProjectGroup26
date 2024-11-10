@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import DogDetail from './DogDetail';
+import { GoogleMap, Marker, InfoWindow, LoadScript } from '@react-google-maps/api';
 import './DogList.css';
 
 const DogList = ({ dogs, searchTerm }) => {
@@ -17,6 +15,15 @@ const DogList = ({ dogs, searchTerm }) => {
         dog.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
+    // Google Maps container style
+    const mapContainerStyle = {
+        height: '100%',
+        width: '100%',
+    };
+
+    // Center the map on Atlanta (default location)
+    const center = { lat: 33.749, lng: -84.388 };
+
     return (
         <div className="dog-list-container">
             {/* Dog List Section on the left */}
@@ -29,9 +36,6 @@ const DogList = ({ dogs, searchTerm }) => {
                         </li>
                     ))}
                 </ul>
-
-                {/* Dog Detail Popup */}
-                {selectedDog && <DogDetail dog={selectedDog} />}
 
                 {/* Navigation Buttons */}
                 <div className="navigation-buttons">
@@ -46,37 +50,47 @@ const DogList = ({ dogs, searchTerm }) => {
 
             {/* Map Section on the right */}
             <div className="map-section">
-                <MapContainer center={[33.749, -84.388]} zoom={12} style={{ height: '100%', width: '100%' }}>
-                    <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    />
-                    {filteredDogs.map((dog) => (
-                        dog.location && dog.location.lat && dog.location.lng ? (
-                            <Marker
-                                key={dog.id}
-                                position={[dog.location.lat, dog.location.lng]}
-                                eventHandlers={{
-                                    click: () => handleDogClick(dog),
-                                }}
+                <LoadScript
+                    googleMapsApiKey="AIzaSyDMTJuQ-_KvHdKCfhoPejyrW531FjENfLU"
+                    loadingElement={<div style={{ height: '100%', width: '100%' }}>Loading...</div>}
+                >
+                    <GoogleMap
+                        mapContainerStyle={mapContainerStyle}
+                        center={center}
+                        zoom={12}
+                    >
+                        {filteredDogs.map((dog) => (
+                            dog.location && dog.location.lat && dog.location.lng ? (
+                                <Marker
+                                    key={dog.id}
+                                    position={{ lat: dog.location.lat, lng: dog.location.lng }}
+                                    onClick={() => handleDogClick(dog)}
+                                />
+                            ) : null
+                        ))}
+
+                        {/* InfoWindow displays dog details when a dog is selected */}
+                        {selectedDog && selectedDog.location && (
+                            <InfoWindow
+                                position={{ lat: selectedDog.location.lat, lng: selectedDog.location.lng }}
+                                onCloseClick={() => setSelectedDog(null)}
                             >
-                                <Popup>
-                                    <h3>{dog.name}</h3>
-                                    <p><strong>Breed:</strong> {dog.breed}</p>
-                                    <p><strong>Age:</strong> {dog.age}</p>
-                                    <p><strong>Description:</strong> {dog.description}</p>
-                                </Popup>
-                            </Marker>
-                        ) : null
-                    ))}
-                </MapContainer>
+                                <div>
+                                    <h3>{selectedDog.name}</h3>
+                                    <p><strong>Breed:</strong> {selectedDog.breed}</p>
+                                    <p><strong>Age:</strong> {selectedDog.age}</p>
+                                    <p><strong>Description:</strong> {selectedDog.description}</p>
+                                </div>
+                            </InfoWindow>
+                        )}
+                    </GoogleMap>
+                </LoadScript>
             </div>
         </div>
     );
 };
 
 export default DogList;
-
 
 
 //For the backend implementation
