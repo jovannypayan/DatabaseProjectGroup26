@@ -1,0 +1,99 @@
+/* Login Page Styling */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2b3a42; /* Matching header background color */
+    color: #f5f5f5;
+}
+
+.login-box {
+    width: 350px;
+    padding: 40px;
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+h2 {
+    color: #4EC4F0; /* Header accent blue color */
+    margin-bottom: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-input {
+    padding: 12px;
+    margin: 10px 0;
+    width: 100%;
+    background-color: #2e2e2e;
+    color: #f5f5f5;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-input::placeholder {
+    color: #c5c5c5;
+}
+
+.login-input:focus {
+    outline: none;
+    border: 1px solid #4EC4F0; /* Accent color for focus */
+    box-shadow: 0 0 8px rgba(78, 196, 240, 0.5);
+}
+
+.login-button {
+    padding: 12px;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f5f5f5;
+    background-color: #4EC4F0; /* Accent blue */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #00bfff; /* Slightly lighter for hover */
+}
+
+.login-footer {
+    margin-top: 20px;
+}
+
+.login-footer a {
+    color: #4EC4F0; /* Accent blue */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.signup-button {
+    margin-top: 15px;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #f5f5f5;
+    background-color: #2b3a42; /* Match header color */
+    border: 1px solid #4EC4F0; /* Accent border */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signup-button:hover {
+    background-color: #4EC4F0; /* Match login button hover color */
+}

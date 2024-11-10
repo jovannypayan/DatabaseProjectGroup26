@@ -1,0 +1,189 @@
+/*BODY {font-family: serif; background-color: silver;}
+H1 {font: x-large Verdana, sans-serif; color: olive;
+    border-bottom: thin black solid;}
+TABLE {margin: 0;}
+.sidebar {background-color: olive; padding: 0.5em;}
+.sidebar UL LI {list-style-type: none; margin-left: 0;
+                 margin-right: 0.5em;}
+.sidebar UL LI A {color: #FFCCCC;}
+.body {background: white no-repeat center
+       url(http://www.mysite.org/pix/logo.gif);}
+IMG.icon {border: outset gray 3px; padding: 0;}
+P {margin: 0em 0.5em; text-indent: 1em;}*/
+
+/* global.css */
+
+/* Reset some default browser styling */
+/* global.css */
+
+/* Reset some default browser styling */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10;
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif; /* Use a clean, readable font */
+    background-color: #1e1e1e; /* Dark theme background */
+    color: #d4d4d4; /* Light text color */
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Global Layout Styling */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header,
+.footer {
+    background-color: #333;
+    color: #d4d4d4;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 100px 20px 20px;  /* Added 60px top padding for header */
+    background-color: #252526;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: #61dafb; /* A soft blue accent for headings */
+    margin-bottom: 10px;
+}
+
+p, li {
+    line-height: 1.6;
+    color: #d4d4d4;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    color: #d4d4d4;
+    background-color: #3a3d41;
+    border: 1px solid #555;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #61dafb;
+    color: #1e1e1e;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"],
+input[type="search"] {
+    padding: 8px 12px;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 400px;
+    background-color: #2d2d2d;
+    color: #d4d4d4;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+input:focus {
+    outline: none;
+    border-color: #61dafb;
+    box-shadow: 0 0 5px rgba(97, 218, 251, 0.5);
+}
+
+/* Search Bar Styling */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    border: none;
+    background: transparent;
+    color: #d4d4d4;
+    margin-right: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.search-bar button {
+    background-color: #61dafb;
+    color: #1e1e1e;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* List Styling */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+li:hover {
+    background-color: #333;
+}
+
+/* Card / Box Styling */
+.summary-card {
+    padding: 20px;
+    background-color: #333;
+    color: #d4d4d4;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.summary-card h2 {
+    color: #61dafb;
+}
+
+.summary-card p {
+    font-size: 24px;
+    color: #d4d4d4;
+}
+
+/* Links */
+a {
+    color: #61dafb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
